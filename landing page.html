@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> landing page Coaching</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f2ff
+        }
+        
+        header {
+            background: #6f42c1;
+            color: #fff;
+            padding: 15px
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+        
+        nav a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold
+        }
+        
+        .hero {
+            background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+            color: #fff;
+            padding: 120px 20px;
+            text-align: center
+        }
+        
+        .hero h1 {
+            font-size: 45px
+        }
+        
+        .btn {
+            background: #6f42c1;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold
+        }
+        
+        .section {
+            padding: 50px 20px;
+            text-align: center
+        }
+        
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap
+        }
+        
+        .card {
+            background: #fff;
+            padding: 20px;
+            width: 250px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid #6f42c1
+        }
+        
+        .form-box {
+            background: #fff;
+            padding: 20px;
+            max-width: 300px;
+            margin: 10px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+        }
+        
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 8px 0
+        }
+        
+        footer {
+            background: #2d1457;
+            color: #fff;
+            text-align: center;
+            padding: 20px
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h2>Arjun Coaching</h2>
+            <div>
+                <a href="#">Home</a>
+                <a href="#features">Courses</a>
+                <a href="#login">Login</a>
+                <a href="#register">Register</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Learn Skills, Grow Your Career</h1>
+        <p>Join our online coaching platform</p>
+        <a href="#register" class="btn">Join Now</a>
+    </section>
+
+    <section id="features" class="section">
+        <h2>Our Courses</h2>
+        <div class="cards">
+            <div class="card">Web Development</div>
+            <div class="card">Python Programming</div>
+            <div class="card">Digital Marketing</div>
+            <div class="card">Data Science</div>
+            <div class="card">Spoken English</div>
+            <div class="card">Graphic Design</div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Why Choose Us?</h2>
+        <div class="cards">
+            <div class="card">Expert Trainers</div>
+            <div class="card">Affordable Fees</div>
+            <div class="card">Live Projects</div>
+            <div class="card">Placement Support</div>
+        </div>
+    </section>
+
+    <section id="login" class="section">
+        <h2>Login</h2>
+        <div class="form-box">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <button class="btn">Login</button>
+        </div>
+    </section>
+
+    <section id="register" class="section">
+        <h2>Register</h2>
+        <div class="form-box">
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <button class="btn">Register</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Arjun Coaching. All rights reserved.</p>
+    </footer>
+    <script>
+        // Login message
+        const loginBtn = document.querySelector('#login button');
+        loginBtn.addEventListener('click', function() {
+            alert('Login successful! Welcome back 😊');
+        });
+
+        // Register message
+        const regBtn = document.querySelector('#register button');
+        regBtn.addEventListener('click', function() {
+            alert('Registration successful! Welcome to Purple Coaching 🎉');
+        });
+    </script>
+</body>
+
+</html>

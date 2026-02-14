@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature Converter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f2f6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0
+        }
+        
+        .card {
+            background: #fff;
+            padding: 24px 28px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+            max-width: 360px;
+            width: 100%
+        }
+        
+        h1 {
+            font-size: 22px;
+            margin: 0 0 12px
+        }
+        
+        label {
+            font-weight: 600;
+            font-size: 14px
+        }
+        
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 10px 12px;
+            margin-top: 6px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 15px
+        }
+        
+        button {
+            margin-top: 14px;
+            border: none;
+            background: #4f46e5;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer
+        }
+        
+        button:hover {
+            opacity: .95
+        }
+        
+        .result {
+            margin-top: 14px;
+            font-size: 18px;
+            font-weight: 700
+        }
+        
+        .error {
+            color: #b91c1c;
+            font-size: 14px;
+            margin-top: 8px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>Temperature Converter</h1>
+
+        <label for="tempInput">Enter temperature</label>
+        <input id="tempInput" type="text" placeholder="e.g. 32">
+
+        <label for="unitFrom">Convert from</label>
+        <select id="unitFrom">
+      <option value="C">Celsius (°C)</option>
+      <option value="F">Fahrenheit (°F)</option>
+      <option value="K">Kelvin (K)</option>
+    </select>
+
+        <label for="unitTo">Convert to</label>
+        <select id="unitTo">
+      <option value="F">Fahrenheit (°F)</option>
+      <option value="C">Celsius (°C)</option>
+      <option value="K">Kelvin (K)</option>
+    </select>
+
+        <button onclick="convertTemp()">Convert</button>
+
+        <div id="result" class="result"></div>
+        <div id="error" class="error"></div>
+    </div>
+
+    <script>
+        function convertTemp() {
+            const input = document.getElementById('tempInput').value.trim();
+            const from = document.getElementById('unitFrom').value;
+            const to = document.getElementById('unitTo').value;
+            const resultEl = document.getElementById('result');
+            const errorEl = document.getElementById('error');
+
+            resultEl.textContent = '';
+            errorEl.textContent = '';
+
+            if (input === '' || isNaN(input)) {
+                errorEl.textContent = 'Please enter a valid number.';
+                return;
+            }
+
+            let temp = parseFloat(input);
+            let converted;
+
+            if (from === to) {
+                converted = temp;
+            } else if (from === 'C' && to === 'F') {
+                converted = (temp * 9 / 5) + 32;
+            } else if (from === 'F' && to === 'C') {
+                converted = (temp - 32) * 5 / 9;
+            } else if (from === 'C' && to === 'K') {
+                converted = temp + 273.15;
+            } else if (from === 'K' && to === 'C') {
+                converted = temp - 273.15;
+            } else if (from === 'F' && to === 'K') {
+                converted = (temp - 32) * 5 / 9 + 273.15;
+            } else if (from === 'K' && to === 'F') {
+                converted = (temp - 273.15) * 9 / 5 + 32;
+            }
+
+            resultEl.textContent = `Result: ${converted.toFixed(2)} °${to === 'K' ? '' : to} ${to === 'K' ? 'K' : ''}`;
+        }
+    </script>
+</body>
+
+</html>
